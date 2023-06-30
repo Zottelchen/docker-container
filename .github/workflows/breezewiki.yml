@@ -54,5 +54,5 @@ jobs:
           cache-to: gha
           tags: |
             zottelchen/breezewiki:latest
-            ghcr.io/Zottelchen/breezewiki:latest
+            ghcr.io/zottelchen/breezewiki:latest
           # quay.io/<>/breezewiki:latest
