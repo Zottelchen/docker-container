@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  hadolint:
+  Hadolint:
     name: 🧪Run hadolint scanning
     runs-on: ubuntu-latest
     permissions:
@@ -44,9 +44,9 @@ jobs:
           sarif_file: hadolint-results.sarif
           wait-for-processing: true
 
-  build-push:
+  Build-and-Push:
+    name: 🐋Build and push Docker image
     runs-on: ubuntu-latest
-
     steps:
       - name: 👷‍♀️ Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -84,10 +84,17 @@ jobs:
             ghcr.io/zottelchen/breezewiki:latest
           # quay.io/<>/breezewiki:latest
 
+  Update-Readme-on-Dockerhub:
+    name: 📖 Update repo description on DockerHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🎯 Checkout code
+        uses: actions/checkout@v3
+
       - name: 📖 Update repo description
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: zottelchen/breezewiki
-          readme-filepath: breezewiki/README.md
+          readme-filepath: ./breezewiki/README.md
