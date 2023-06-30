@@ -67,7 +67,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: "{{defaultContext}}:breezewiki"
-          platforms: linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64/v8
+          platforms: linux/386,linux/amd64,linux/arm64/v8
           labels: |
             org.opencontainers.image.source=https://github.com/Zottelchen/docker-container
             org.opencontainers.image.revision=${{ github.sha }}
