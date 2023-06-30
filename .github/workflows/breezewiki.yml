@@ -77,8 +77,8 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.description=BreezeWiki is a simple wiki front written in Racket.
           push: true
-          cache-from: gha
-          cache-to: gha,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             zottelchen/breezewiki:latest
             ghcr.io/zottelchen/docker-container:breezewiki-latest
