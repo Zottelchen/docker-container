@@ -3,7 +3,7 @@ name: BreezeWiki - Build & Push
 on:
   push:
     branches:
-      - "master"
+      - "main"
     paths:
       - "breezewiki/**"
       - ".github/workflows/breezewiki.yml"
