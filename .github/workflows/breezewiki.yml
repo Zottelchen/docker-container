@@ -81,5 +81,5 @@ jobs:
           cache-to: type=gha,mode=max
           tags: |
             zottelchen/breezewiki:latest
-            ghcr.io/zottelchen/docker-container:breezewiki-latest
+            ghcr.io/zottelchen/breezewiki:latest
           # quay.io/<>/breezewiki:latest
