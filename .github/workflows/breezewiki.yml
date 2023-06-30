@@ -90,4 +90,4 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: zottelchen/breezewiki
-          readme-filepath: ./breezewiki/README.md
+          readme-filepath: breezewiki/README.md
