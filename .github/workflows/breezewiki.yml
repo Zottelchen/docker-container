@@ -83,3 +83,11 @@ jobs:
             zottelchen/breezewiki:latest
             ghcr.io/zottelchen/breezewiki:latest
           # quay.io/<>/breezewiki:latest
+
+      - name: 📖 Update repo description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: zottelchen/breezewiki
+          readme-filepath: ./breezewiki/README.md
