@@ -13,6 +13,10 @@ on:
     - cron: "0 */6 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   hadolint:
     name: 🧪Run hadolint scanning
@@ -74,7 +78,7 @@ jobs:
             org.opencontainers.image.description=BreezeWiki is a simple wiki front written in Racket.
           push: true
           cache-from: gha
-          cache-to: gha,max
+          cache-to: gha,mode=max
           tags: |
             zottelchen/breezewiki:latest
             ghcr.io/zottelchen/docker-container:breezewiki-latest
