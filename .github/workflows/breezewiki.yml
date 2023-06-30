@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
     paths:
-      - "breezewiki/**"
+      - "breezewiki/Dockerfile"
       - ".github/workflows/breezewiki.yml"
 
   schedule:

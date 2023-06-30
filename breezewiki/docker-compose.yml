@@ -2,7 +2,9 @@ services:
 
   breezewiki:
     container_name: breezewiki
-    image: hello-world #todo
+    image: ghcr.io/zottelchen/breezewiki:latest
+    # or
+    # image: zottelchen/breezewiki:latest
     restart: unless-stopped
     ports:
       - "127.0.0.1:10416:10416" # Replace with "10416:10416" if you don't use a reverse proxy
