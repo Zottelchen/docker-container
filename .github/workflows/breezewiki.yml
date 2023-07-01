@@ -34,7 +34,7 @@ jobs:
         with:
           dockerfile: ./breezewiki/Dockerfile
           format: sarif
-          ignore: DL3008
+          ignore: DL3008,DL3007
           output-file: hadolint-results.sarif
           no-fail: true
 
