@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+
+  nitter:
+    image: ghcr.io/zottelchen/nitter:latest
+    # or
+    # image: zottelchen/nitter:latest
+    container_name: nitter
+    networks:
+      - nitter
+    volumes:
+      - './nitter.conf:/app/nitter.conf'
+    depends_on:
+      - nitter-redis
+    restart: unless-stopped
+    healthcheck:
+      test: wget -nv --tries=1 --spider http://localhost/Jack/status/20 || ash -c 'kill -s 15 -1 && (sleep 10; kill -s 9 -1)'
+      interval: 60s
+      timeout: 5s
+      retries: 2
+    user: "998:998"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  nitter-redis:
+    image: redis:6-alpine
+    container_name: nitter-redis
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - nitter-redis:/data
+    restart: unless-stopped
+    healthcheck:
+      test: redis-cli ping
+      interval: 30s
+      timeout: 5s
+      retries: 2
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    user: "999:1000"
+
+volumes:
+  nitter-redis:
+
+
+
