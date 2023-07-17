@@ -10,26 +10,8 @@ RUN apk add --no-cache --no-progress git alpine-sdk python3 nodejs-current npm r
 # Fetch Calckey
 RUN git clone --depth 1 https://codeberg.org/calckey/calckey.git .
 
-# Copy only the cargo dependency-related files first, to cache efficiently
-#COPY packages/backend/native-utils/Cargo.toml packages/backend/native-utils/Cargo.toml
-#COPY packages/backend/native-utils/Cargo.lock packages/backend/native-utils/Cargo.lock
-COPY packages/backend/native-utils/src/lib.rs packages/backend/native-utils/src/
-#COPY packages/backend/native-utils/migration/Cargo.toml packages/backend/native-utils/migration/Cargo.toml
-COPY packages/backend/native-utils/migration/src/lib.rs packages/backend/native-utils/migration/src/
-
 # Install cargo dependencies
 RUN cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
-
-# Copy only the dependency-related files first, to cache efficiently
-COPY package.json pnpm*.yaml ./
-#COPY packages/backend/package.json packages/backend/package.json
-#COPY packages/client/package.json packages/client/package.json
-#COPY packages/sw/package.json packages/sw/package.json
-#COPY packages/calckey-js/package.json packages/calckey-js/package.json
-#COPY packages/megalodon/package.json packages/megalodon/package.json
-#COPY packages/backend/native-utils/package.json packages/backend/native-utils/package.json
-#COPY packages/backend/native-utils/npm/linux-x64-musl/package.json packages/backend/native-utils/npm/linux-x64-musl/package.json
-#COPY packages/backend/native-utils/npm/linux-arm64-musl/package.json packages/backend/native-utils/npm/linux-arm64-musl/package.json
 
 # Configure corepack and pnpm, and install dev mode dependencies for compilation
 RUN corepack enable && corepack prepare pnpm@latest --activate && pnpm i --frozen-lockfile
