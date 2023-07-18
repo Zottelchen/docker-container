@@ -2,13 +2,11 @@ FROM debian:11-slim AS base
 
 WORKDIR /app
 RUN echo 'deb http://deb.debian.org/debian bullseye-backports main' > /etc/apt/sources.list.d/backports.list
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends ca-certificates curl racket/bullseye-backports git && \
-    apt-get autoclean -y && \
-    apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/*
-RUN git clone --depth=1 https://gitdab.com/cadence/breezewiki.git . && \
-    raco pkg install --batch --auto --no-docs --skip-installed req-lib && \
+RUN apt-get update -y
+RUN apt-get install -y --no-install-recommends ca-certificates curl racket/bullseye-backports git
+
+RUN git clone --depth=1 https://gitdab.com/cadence/breezewiki.git . 
+RUN raco pkg install --batch --auto --no-docs --skip-installed req-lib && \
     raco req -d
 RUN raco exe dist.rkt
 RUN touch config.ini && \
