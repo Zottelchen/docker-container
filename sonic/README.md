@@ -16,7 +16,6 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Supported Platforms
 
-- linux/amd64
 - linux/arm64
 
 ## Stats

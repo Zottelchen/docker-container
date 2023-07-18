@@ -12,18 +12,14 @@ RUN rustc --version && \
 
 WORKDIR /app
 RUN git clone --depth 1 https://github.com/valeriansaliou/sonic.git .
-RUN if [ "$TARGETPLATFORM" = "linux/arm64/v8" ]; \
-    then export RUST_TARGET=aarch64-unknown-linux-gnu; \
-    else export RUST_TARGET=x86_64-unknown-linux-gnu; \
-    fi && \
-    cargo clean && cargo build --release --target $RUST_TARGET
-RUN strip ./target/x86_64-unknown-linux-gnu/release/sonic
+RUN cargo clean && cargo build --release --target aarch64-unknown-linux-gnu
+RUN strip ./target/aarch64-unknown-linux-gnu/release/sonic
 
 FROM gcr.io/distroless/cc
 
 WORKDIR /usr/src/sonic
 
-COPY --from=build /app/target/x86_64-unknown-linux-gnu/release/sonic /usr/local/bin/sonic
+COPY --from=build /app/target/aarch64-unknown-linux-gnu/release/sonic /usr/local/bin/sonic
 
 CMD [ "sonic", "-c", "/etc/sonic.cfg" ]
 
