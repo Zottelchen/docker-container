@@ -20,5 +20,5 @@ The core principles of these images are:
 | [Sonic](sonic/README.md)⚠                              | [GitHub](https://github.com/valeriansaliou/sonic) | [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/sonic/latest?logo=docker&label=%E2%80%8B)](https://hub.docker.com/r/zottelchen/sonic)                             | [zottelchen/sonic](https://hub.docker.com/r/zottelchen/sonic)                             | [ghcr.io/zottelchen/sonic](https://github.com/users/Zottelchen/packages/container/package/sonic)                             |
 | [Calckey](calckey/README.md)⚠‼                         | [Codeberg](https://codeberg.org/calckey/calckey)  | [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/calckey/latest?logo=docker&label=%E2%80%8B)](https://hub.docker.com/r/zottelchen/calckey)                         | [zottelchen/calckey](https://hub.docker.com/r/zottelchen/calckey)                         | _not available_                                                                                                              |
 
-_⚠: This image is not available for both (arm64/amd64) platforms._
-_‼: This image is only temporarily available (e.g. until the official image is available)._
+- _⚠: This image is not available for both (arm64/amd64) platforms._
+- _‼: This image is only temporarily available (e.g. until the official image is available)._
