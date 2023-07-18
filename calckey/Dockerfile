@@ -13,11 +13,11 @@ RUN git clone --depth 1 https://codeberg.org/calckey/calckey.git .
 # Install cargo dependencies
 RUN cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
 
+# Copy only the dependency-related files first, to cache efficiently
+COPY package.json pnpm*.yaml ./
+
 # Configure corepack and pnpm, and install dev mode dependencies for compilation
 RUN corepack enable && corepack prepare pnpm@latest --activate && pnpm i --frozen-lockfile
-
-# Copy in the rest of the native-utils rust files
-#COPY packages/backend/native-utils packages/backend/native-utils/
 
 # Compile native-utils
 RUN pnpm run --filter native-utils build

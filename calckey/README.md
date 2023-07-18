@@ -1,14 +1,14 @@
 # Calckey
 
-_This fork exists to provide an ARM64 image until https://codeberg.org/calckey/calckey/issues/8555 is implemented. This image will then cease to exist._
+_‼This fork exists to provide an ARM64 image until https://codeberg.org/calckey/calckey/issues/10017 is implemented. This image will then cease to exist._
 
-_Additionally, this image runs the latest code. It is basically a nightly version and may contain bugs. It is not recommended to use this image in production._
+_‼Additionally, this image runs the latest code. It is basically a nightly version and may contain bugs. It is not recommended to use this image in production._
 
 A [Calckey](https://codeberg.org/calckey/calckey) image. See [their GitHub repo](https://codeberg.org/calckey/calckey) for more information.
 
 For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/calckey).
 
-GitHub Container Registry: not available| [Docker Hub](https://hub.docker.com/r/zottelchen/calckey)
+_GitHub Container Registry not available_ | [Docker Hub](https://hub.docker.com/r/zottelchen/calckey)
 
 ## Usage:
 
