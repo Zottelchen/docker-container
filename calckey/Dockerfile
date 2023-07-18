@@ -19,9 +19,6 @@ COPY --from=fetch /calckey /calckey
 # Install cargo dependencies
 RUN cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
 
-# Copy only the dependency-related files first, to cache efficiently
-COPY package.json pnpm*.yaml ./
-
 # Configure corepack and pnpm, and install dev mode dependencies for compilation
 RUN corepack enable && corepack prepare pnpm@latest --activate && pnpm i --frozen-lockfile
 
