@@ -23,7 +23,6 @@ RUN corepack enable && corepack prepare pnpm@latest --activate && pnpm i --froze
 RUN pnpm run --filter native-utils build
 
 # Copy in the rest of the files to compile
-#COPY . ./
 RUN env NODE_ENV=production sh -c "pnpm run --filter '!native-utils' build && pnpm run gulp"
 
 # Trim down the dependencies to only those for production

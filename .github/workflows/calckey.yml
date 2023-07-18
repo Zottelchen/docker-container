@@ -34,7 +34,7 @@ jobs:
         with:
           dockerfile: ./calckey/Dockerfile
           format: sarif
-          ignore: DL3008,DL3007
+          ignore: DL3008,DL3007,DL3018
           output-file: hadolint-results.sarif
           no-fail: true
 
