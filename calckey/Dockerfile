@@ -1,4 +1,10 @@
 
+## Fetch Calckey
+FROM alpine:3.18 as fetch
+WORKDIR /calckey
+RUN apk add --no-cache --no-progress git
+RUN git clone --depth 1 https://codeberg.org/calckey/calckey.git .
+
 
 ## Install dev and compilation dependencies, build files
 FROM alpine:3.18 as build
@@ -7,8 +13,8 @@ WORKDIR /calckey
 # Install compilation dependencies
 RUN apk add --no-cache --no-progress git alpine-sdk python3 nodejs-current npm rust cargo vips
 
-# Fetch Calckey
-RUN git clone --depth 1 https://codeberg.org/calckey/calckey.git .
+# Get Calckey
+COPY --from=fetch /calckey /calckey
 
 # Install cargo dependencies
 RUN cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
@@ -35,7 +41,8 @@ WORKDIR /calckey
 # Install runtime dependencies
 RUN apk add --no-cache --no-progress tini ffmpeg vips-dev zip unzip nodejs-current
 
-COPY . ./
+# Get Calckey
+COPY --from=fetch /calckey /calckey
 
 COPY --from=build /calckey/packages/megalodon /calckey/packages/megalodon
 
