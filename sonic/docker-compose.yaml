@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  sonic:
+    restart: unless-stopped
+    image: zottelchen/sonic:latest
+    # or
+    # image: zottelchen/sonic:latest
+    volumes:
+      - sonic:/var/lib/sonic/store
+      - ./sonic.cfg:/etc/sonic.cfg
+
+volumes:
+  sonic:
