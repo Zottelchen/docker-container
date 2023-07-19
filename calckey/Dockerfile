@@ -3,7 +3,7 @@
 FROM alpine:3.18 as fetch
 WORKDIR /calckey
 RUN apk add --no-cache --no-progress git
-RUN git clone --depth 1 https://codeberg.org/calckey/calckey.git .
+RUN git clone --depth 1 --branch v13.1.4.1 --single-branch https://codeberg.org/calckey/calckey.git .
 
 
 ## Install dev and compilation dependencies, build files

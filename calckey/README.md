@@ -2,7 +2,7 @@
 
 _‼This fork exists to provide an ARM64 image until https://codeberg.org/calckey/calckey/issues/10017 is implemented. This image will then cease to exist._
 
-_‼Additionally, this image runs the latest code. It is basically a nightly version and may contain bugs. It is not recommended to use this image in production._
+_‼The version is also currently pinned to v13.1.4.1._
 
 A [Calckey](https://codeberg.org/calckey/calckey) image. See [their GitHub repo](https://codeberg.org/calckey/calckey) for more information.
 
