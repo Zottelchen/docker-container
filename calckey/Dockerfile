@@ -11,7 +11,7 @@ FROM alpine:3.18 as build
 WORKDIR /calckey
 
 # Install compilation dependencies
-RUN apk add --no-cache --no-progress git alpine-sdk python3 nodejs-current npm rust cargo vips
+RUN apk add --no-cache --no-progress git alpine-sdk python3 nodejs-current npm rust cargo vips tree
 
 # Copy only the cargo dependency-related files first, to cache efficiently
 COPY --from=fetch /calckey/packages/backend/native-utils/Cargo.toml packages/backend/native-utils/Cargo.toml
@@ -19,6 +19,8 @@ COPY --from=fetch /calckey/packages/backend/native-utils/Cargo.lock packages/bac
 COPY --from=fetch /calckey/packages/backend/native-utils/src/lib.rs packages/backend/native-utils/src/
 COPY --from=fetch /calckey/packages/backend/native-utils/migration/Cargo.toml packages/backend/native-utils/migration/Cargo.toml
 COPY --from=fetch /calckey/packages/backend/native-utils/migration/src/lib.rs packages/backend/native-utils/migration/src/
+
+RUN tree
 
 # Install cargo dependencies
 RUN cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
