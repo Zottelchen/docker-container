@@ -20,10 +20,8 @@ COPY --from=fetch /calckey/packages/backend/native-utils/src/lib.rs packages/bac
 COPY --from=fetch /calckey/packages/backend/native-utils/migration/Cargo.toml packages/backend/native-utils/migration/Cargo.toml
 COPY --from=fetch /calckey/packages/backend/native-utils/migration/src/lib.rs packages/backend/native-utils/migration/src/
 
-RUN tree
-
 # Install cargo dependencies
-RUN cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
+RUN tree && cargo fetch --locked --manifest-path /calckey/packages/backend/native-utils/Cargo.toml
 
 # Copy only the dependency-related files first, to cache efficiently
 COPY --from=fetch /calckey/package.json pnpm*.yaml ./
@@ -37,7 +35,7 @@ COPY --from=fetch /calckey/packages/backend/native-utils/npm/linux-x64-musl/pack
 COPY --from=fetch /calckey/packages/backend/native-utils/npm/linux-arm64-musl/package.json packages/backend/native-utils/npm/linux-arm64-musl/package.json
 
 # Configure corepack and pnpm, and install dev mode dependencies for compilation
-RUN corepack enable && corepack prepare pnpm@latest --activate && pnpm i --frozen-lockfile
+RUN tree && corepack enable && corepack prepare pnpm@latest --activate && pnpm i --frozen-lockfile
 
 # Copy in the rest of the native-utils rust files
 COPY --from=fetch /calckey/packages/backend/native-utils packages/backend/native-utils/
