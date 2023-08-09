@@ -1,21 +1,25 @@
+FROM bitnami/git as git_clone
+WORKDIR /git_clone
+RUN git clone --depth=1 https://git.sr.ht/~edwardloveall/scribe .
+
 FROM node:16-alpine as node_build
 WORKDIR /tmp_build
 
-COPY package.json .
-COPY yarn.lock .
+COPY --from=git_clone /git_clone/package.json .
+COPY --from=git_clone /git_clone/yarn.lock .
 RUN yarn install --no-progress --frozen-lockfile
 
-COPY webpack.mix.js .
-COPY src ./src
+COPY --from=git_clone /git_clone/webpack.mix.js .
+COPY --from=git_clone /git_clone/src ./src
 RUN yarn prod
 
 FROM crystallang/crystal:1.5-alpine as lucky_build
 ENV SKIP_LUCKY_TASK_PRECOMPILATION="1"
 RUN apk add yaml-static
 WORKDIR /tmp_build
-COPY shard.* ./
+COPY --from=git_clone /git_clone/shard.* ./
 RUN  shards install --production
-COPY . .
+COPY --from=git_clone /git_clone/. .
 COPY --from=node_build /tmp_build/public/mix-manifest.json public/mix-manifest.json
 RUN crystal build --static src/start_server.cr
 RUN crystal build --static tasks.cr -o run_task
