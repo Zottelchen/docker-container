@@ -1,11 +1,11 @@
-FROM bitnami/git as git_clone
+FROM bitnami/git:latest as git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/nanos/FediFetcher.git .
 
 FROM cgr.dev/chainguard/python:latest-dev as builder
 WORKDIR /app
 COPY --from=git_clone /git_clone/requirements.txt .
-RUN pip install -r requirements.txt --user --upgrade && mkdir -p /app/artifacts/ && chown nonroot:nonroot -R /app/artifacts/
+RUN pip install --no-cache-dir -r requirements.txt --user --upgrade && mkdir -p /app/artifacts/ && chown nonroot:nonroot -R /app/artifacts/
 
 FROM cgr.dev/chainguard/python:latest
 WORKDIR /app
