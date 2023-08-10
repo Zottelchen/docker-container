@@ -1,7 +1,7 @@
 FROM bitnami/git as git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/nanos/FediFetcher.git .
-
+RUN mkdir -p /app/artifacts/
 
 FROM cgr.dev/chainguard/python:latest-dev as builder
 WORKDIR /app
@@ -12,6 +12,6 @@ FROM cgr.dev/chainguard/python:latest
 WORKDIR /app
 # Make sure you update Python version in path
 COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
-RUN mkdir -p /app/artifacts/
+COPY --from=git_clone /app/artifacts/ /app/artifacts/
 COPY --from=git_clone /git_clone/find_posts.py /app/
 ENTRYPOINT [ "python", "/app/find_posts.py" ]
