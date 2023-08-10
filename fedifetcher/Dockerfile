@@ -1,6 +1,6 @@
 FROM bitnami/git as git_clone
 WORKDIR /git_clone
-RUN git clone --depth=1 https://github.com/nanos/FediFetcher.git . && mkdir -p /app/artifacts/
+RUN git clone --depth=1 https://github.com/nanos/FediFetcher.git . && mkdir -p /app/artifacts/ && chown nonroot:nonroot -R /app/artifacts/
 
 FROM cgr.dev/chainguard/python:latest-dev as builder
 WORKDIR /app
