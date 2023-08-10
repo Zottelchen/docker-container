@@ -5,7 +5,7 @@ RUN git clone --depth=1 https://github.com/nanos/FediFetcher.git .
 FROM cgr.dev/chainguard/python:latest-dev as builder
 WORKDIR /app
 COPY --from=git_clone /git_clone/requirements.txt .
-RUN pip install -r requirements.txt --user --upgrade && mkdir -p /app/artifacts/ && chown nonroot:nonroot -R /app/artifacts/ && ls -la /app
+RUN pip install -r requirements.txt --user --upgrade && mkdir -p /app/artifacts/ && chown nonroot:nonroot -R /app/artifacts/
 
 FROM cgr.dev/chainguard/python:latest-dev
 WORKDIR /app
