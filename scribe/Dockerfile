@@ -13,7 +13,7 @@ COPY --from=git_clone /git_clone/webpack.mix.js .
 COPY --from=git_clone /git_clone/src ./src
 RUN yarn prod
 
-FROM crystallang/crystal:1.6-alpine as lucky_build
+FROM crystallang/crystal:1.8-alpine as lucky_build
 ENV SKIP_LUCKY_TASK_PRECOMPILATION="1"
 RUN apk add yaml-static
 WORKDIR /tmp_build
