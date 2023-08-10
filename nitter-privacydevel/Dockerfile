@@ -1,3 +1,7 @@
+FROM bitnami/git:latest as git_clone
+WORKDIR /git_clone
+RUN git clone --depth=1 https://github.com/PrivacyDevel/nitter.git .
+
 FROM debian:11-slim AS base
 
 WORKDIR /app
@@ -5,8 +9,9 @@ RUN echo 'deb http://deb.debian.org/debian bullseye-backports main' > /etc/apt/s
 RUN apt-get update -y
 RUN apt-get install -y --no-install-recommends gcc git libc6-dev libsass-dev nim/bullseye-backports libpcre2-dev ca-certificates
 
-RUN git clone --depth=1 https://github.com/PrivacyDevel/nitter.git .
+COPY --from=git_clone /git_clone/nitter.nimble .
 RUN nimble install -y --depsOnly
+COPY --from=git_clone /git_clone /app
 RUN nimble build -d:danger -d:lto -d:strip
 RUN nimble scss && \
     nimble md
