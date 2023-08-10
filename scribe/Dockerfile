@@ -18,12 +18,12 @@ RUN yarn prod
 # Crystal build
 
 FROM ubuntu:latest as lucky_build
+RUN apt-get update -y
+RUN apt-get install -y --no-install-recommends libc6-dev libevent-dev libpcre2-dev libpcre3-dev libpng-dev libssl-dev libyaml-dev zlib1g-dev git curl
 WORKDIR /tmp_environment
 ENV SKIP_LUCKY_TASK_PRECOMPILATION="1"
 RUN curl -L https://crystal-lang.org/install.sh -o install.sh
 RUN chmod +x install.sh && bash install.sh --version 1.8 && crystal -v
-RUN apt-get update -y
-RUN apt-get install -y --no-install-recommends libc6-dev libevent-dev libpcre2-dev libpcre3-dev libpng-dev libssl-dev libyaml-dev zlib1g-dev git
 RUN git clone https://github.com/luckyframework/lucky_cli
 WORKDIR /tmp_environment/lucky_cli
 RUN git checkout v1.0.0
