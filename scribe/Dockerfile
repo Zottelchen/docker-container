@@ -19,7 +19,7 @@ RUN yarn prod
 
 FROM debian:11-slim as lucky_build
 RUN apt-get update -y
-RUN apt-get install -y --no-install-recommends libc6-dev libevent-dev libpcre2-dev libpng-dev libssl-dev libyaml-dev zlib1g-dev git curl ca-certificates
+RUN apt-get install -y --no-install-recommends libc6-dev libevent-dev libpcre2-dev libpng-dev libssl-dev libyaml-dev zlib1g-dev git curl ca-certificates gnupg apt-transport-https
 WORKDIR /tmp_environment
 ENV SKIP_LUCKY_TASK_PRECOMPILATION="1"
 RUN curl -L https://crystal-lang.org/install.sh -o install.sh
