@@ -7,7 +7,7 @@ WORKDIR /app
 COPY --from=git_clone /git_clone/requirements.txt .
 RUN pip install -r requirements.txt --user --upgrade && mkdir -p /app/artifacts/ && chown nonroot:nonroot -R /app/artifacts/
 
-FROM cgr.dev/chainguard/python:latest-dev
+FROM cgr.dev/chainguard/python:latest
 WORKDIR /app
 # Make sure you update Python version in path
 COPY --from=builder /home/nonroot/.local/lib/python3.11/site-packages /home/nonroot/.local/lib/python3.11/site-packages
