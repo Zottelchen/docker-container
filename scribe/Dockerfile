@@ -9,7 +9,7 @@ WORKDIR /tmp_build
 
 COPY --from=git_clone /git_clone/package.json .
 COPY --from=git_clone /git_clone/yarn.lock .
-RUN yarn install --no-progress --frozen-lockfile
+RUN yarn install --no-progress --frozen-lockfile --network-timeout 600000
 
 COPY --from=git_clone /git_clone/webpack.mix.js .
 COPY --from=git_clone /git_clone/src ./src
