@@ -32,16 +32,17 @@ COPY --from=git_clone /git_clone/. .
 COPY --from=node_build /tmp_build/public/mix-manifest.json public/mix-manifest.json
 RUN crystal build --static src/start_server.cr
 RUN crystal build --static tasks.cr -o run_task
+RUN mkdir ./config
 
 # Runner
 
 FROM gcr.io/distroless/base-debian11:latest
 
 WORKDIR /app
-COPY --chown=nonroot:nonroot --from=node_build /tmp_build/public public
-COPY --chown=nonroot:nonroot --from=lucky_build /tmp_build/start_server start_server
-COPY --chown=nonroot:nonroot --from=lucky_build /tmp_build/run_task run_task
-COPY --chown=nonroot:nonroot --from=git_clone /git_clone/script/docker_entrypoint ./
-RUN mkdir ./config
+COPY --from=node_build /tmp_build/public public
+COPY --from=lucky_build /tmp_build/start_server start_server
+COPY --from=lucky_build /tmp_build/run_task run_task
+COPY --from=git_clone /git_clone/script/docker_entrypoint ./
+COPY --from=lucky_build /tmp_build/config/. /app/config/
 
 CMD ["/app/docker_entrypoint"]
