@@ -36,7 +36,7 @@ WORKDIR /empty_folder
 
 # Runner
 
-FROM gcr.io/distroless/base-debian11:latest
+FROM gcr.io/distroless/base-debian11:debug
 
 WORKDIR /app
 COPY --from=node_build /tmp_build/public /app/public
