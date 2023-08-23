@@ -35,17 +35,13 @@ RUN crystal build --static tasks.cr -o run_task
 
 # Runner
 
-FROM cgr.dev/chainguard/wolfi-base:latest
+FROM gcr.io/distroless/base-debian11:latest
 
-#RUN adduser -D nonroot && addgroup nonroot nonroot
-USER nonroot
 WORKDIR /app
 COPY --chown=nonroot:nonroot --from=node_build /tmp_build/public public
 COPY --chown=nonroot:nonroot --from=lucky_build /tmp_build/start_server start_server
 COPY --chown=nonroot:nonroot --from=lucky_build /tmp_build/run_task run_task
 COPY --chown=nonroot:nonroot --from=git_clone /git_clone/script/docker_entrypoint ./
-
 RUN mkdir ./config
-RUN chown -R nonroot /app
 
 CMD ["/app/docker_entrypoint"]
