@@ -39,10 +39,10 @@ WORKDIR /empty_folder
 FROM gcr.io/distroless/base-debian11:latest
 
 WORKDIR /app
-COPY --from=node_build /tmp_build/public public
-COPY --from=lucky_build /tmp_build/start_server start_server
-COPY --from=lucky_build /tmp_build/run_task run_task
-COPY --from=git_clone /git_clone/script/docker_entrypoint ./
+COPY --from=node_build /tmp_build/public /app/public
+COPY --from=lucky_build /tmp_build/start_server /app/start_server
+COPY --from=lucky_build /tmp_build/run_task /app/run_task
+COPY --from=git_clone /git_clone/script/docker_entrypoint /app/docker_entrypoint
 COPY --from=lucky_build /empty_folder/. /app/config/
 
 CMD ["/app/docker_entrypoint"]
