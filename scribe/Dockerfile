@@ -42,7 +42,7 @@ RUN crystal build --static tasks.cr -o run_task
 
 FROM cgr.dev/chainguard/wolfi-base:latest
 
-RUN adduser -D nonroot && addgroup nonroot nonroot
+#RUN adduser -D nonroot && addgroup nonroot nonroot
 USER nonroot
 WORKDIR /app
 COPY --chown=nonroot:nonroot --from=node_build /tmp_build/public public
