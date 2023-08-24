@@ -6,7 +6,7 @@ on:
       - "main"
     paths:
       - "breezewiki/Dockerfile"
-      - ".github/workflows/breezewiki.yml"
+      - ".github/workflows/breezewiki_docker.yml"
 
   schedule:
     # * is a special character in YAML so you have to quote this string

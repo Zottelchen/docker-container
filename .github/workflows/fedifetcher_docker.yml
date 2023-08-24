@@ -6,7 +6,7 @@ on:
       - "main"
     paths:
       - "fedifetcher/Dockerfile"
-      - ".github/workflows/fedifetcher.yml"
+      - ".github/workflows/fedifetcher_docker.yml"
 
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -49,7 +49,7 @@ jobs:
           labels: |
             org.opencontainers.image.source=https://github.com/Zottelchen/docker-container
             org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.description=A free and open source alternative Twitter front-end focused on privacy and performance.
+            org.opencontainers.image.description=Fedifetcher prepopulates your timeline with posts from the fediverse.
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max

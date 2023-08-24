@@ -6,7 +6,7 @@ on:
       - "main"
     paths:
       - "nitter-privacydevel/Dockerfile"
-      - ".github/workflows/nitter-privacydevel.yml"
+      - ".github/workflows/nitter-privacydevel_docker.yml"
 
   schedule:
     # * is a special character in YAML so you have to quote this string
