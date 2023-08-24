@@ -32,7 +32,8 @@ COPY --from=git_clone /git_clone/. .
 COPY --from=node_build /tmp_build/public/mix-manifest.json public/mix-manifest.json
 RUN crystal build --static src/start_server.cr
 RUN crystal build --static tasks.cr -o run_task
-WORKDIR /empty_folder
+WORKDIR /tmp_build/config
+RUN echo "port: 8080\nhost: 0.0.0.0" > /tmp_build/config/watch.yml
 
 # Runner
 
@@ -42,7 +43,6 @@ WORKDIR /app
 COPY --from=node_build /tmp_build/public /app/public
 COPY --from=lucky_build /tmp_build/start_server /app/start_server
 COPY --from=lucky_build /tmp_build/run_task /app/run_task
-COPY --from=git_clone /git_clone/script/docker_entrypoint /app/docker_entrypoint
-COPY --from=lucky_build /empty_folder/. /app/config/
+COPY --from=lucky_build /tmp_build/config/. /app/config/
 
-CMD ["/app/docker_entrypoint"]
+CMD ["/app/start_server"]
