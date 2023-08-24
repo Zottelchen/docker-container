@@ -37,7 +37,7 @@ RUN echo "port: 8080\nhost: 0.0.0.0" > /tmp_build/conf/watch.yml
 
 # Runner
 
-FROM gcr.io/distroless/base-debian11:debug
+FROM gcr.io/distroless/cc-debian11:debug
 
 WORKDIR /app
 COPY --from=node_build /tmp_build/public /app/public
