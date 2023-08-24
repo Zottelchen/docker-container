@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  overviewer-clone:
+    image: ghcr.io/zottelchen/overviewer-clone:latest
+    # or
+    # image: zottelchen/overviewer-clone:latest
+    command: /app/world /app/out #edit this line to your needs, see docs at https://docs.overviewer.org/en/latest/running/
+    volumes:
+      #- './render.conf:/app/render.conf'
+      - "./world:/app/world"
+      - "./out:/app/out"

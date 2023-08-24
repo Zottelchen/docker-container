@@ -1,6 +1,6 @@
-# The Minecraft Overviewer
+# Minecraft Overviewer
 
-A [The Minecraft Overviewer](https://github.com/GregoryAM-SP/The-Minecraft-Overviewer) image. See [their GitHub repo](https://github.com/GregoryAM-SP/The-Minecraft-Overviewer) for more information.
+A [Minecraft Overviewer](https://github.com/overviewer/Minecraft-Overviewer) image. See [their GitHub repo](https://github.com/overviewer/Minecraft-Overviewer) for more information.
 
 For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/overviewer).
 

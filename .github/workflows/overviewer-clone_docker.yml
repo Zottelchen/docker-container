@@ -1,12 +1,12 @@
-name: Overviewer - Docker🐋
+name: Overviewer Clone - Docker🐋
 
 on:
   push:
     branches:
       - "main"
     paths:
-      - "overviewer/Dockerfile"
-      - ".github/workflows/overviewer_docker.yml"
+      - "overviewer-clone/Dockerfile"
+      - ".github/workflows/overviewer-clone.yml"
 
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -44,16 +44,16 @@ jobs:
       - name: 👷‍♂️🐋👷‍♀️ Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:overviewer"
+          context: "{{defaultContext}}:overviewer-clone"
           platforms: linux/amd64,linux/arm64/v8
           labels: |
             org.opencontainers.image.source=https://github.com/Zottelchen/docker-container
             org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.description=Minecraft Overviewer renders Minecraft maps into a set of images which can be combined into a Google Maps like interface on a web page.
+            org.opencontainers.image.description=The Minecraft Overviewer, a clone of Minecraft Overviewer, renders Minecraft maps into a set of images which can be combined into a Google Maps like interface on a web page.
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            zottelchen/overviewer:latest
-            ghcr.io/zottelchen/overviewer:latest
-          # quay.io/<>/overviewer:latest
+            zottelchen/overviewer-clone:latest
+            ghcr.io/zottelchen/overviewer-clone:latest
+          # quay.io/<>/overviewer-clone:latest
