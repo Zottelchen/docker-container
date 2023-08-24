@@ -1,0 +1,28 @@
+name: Nitter - Description📖
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "nitter/README.md"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Update-Readme-on-Dockerhub:
+    name: 📖 Update repo description on DockerHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🎯 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 📖 Update repo description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: zottelchen/nitter
+          readme-filepath: ./nitter/README.md

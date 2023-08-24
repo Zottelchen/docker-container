@@ -1,0 +1,39 @@
+name: Nitter - Build & Push
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "nitter/Dockerfile"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Hadolint:
+    name: 🧪Run hadolint scanning
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    steps:
+      - name: 🎯 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🐎Run hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: ./nitter/Dockerfile
+          format: sarif
+          ignore: DL3008,DL3007
+          output-file: hadolint-results.sarif
+          no-fail: true
+
+      - name: ⚡Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: hadolint-results.sarif
+          wait-for-processing: true
