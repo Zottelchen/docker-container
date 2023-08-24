@@ -1,4 +1,4 @@
-name: Nitter - Build & Push
+name: Nitter - Hadolint🧪
 
 on:
   push:
