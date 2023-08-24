@@ -23,17 +23,17 @@ RUN git clone https://github.com/luckyframework/lucky_cli
 WORKDIR /tmp_environment/lucky_cli
 RUN git checkout v1.0.0
 RUN shards install --without-development
-RUN shards build --production && cp bin/lucky /usr/local/bin && lucky -v
+RUN shards build --release --production --static --no-debug && cp bin/lucky /usr/local/bin && lucky -v
 
 WORKDIR /tmp_build
 COPY --from=git_clone /git_clone/shard.* ./
 RUN  shards install --production
 COPY --from=git_clone /git_clone/. .
 COPY --from=node_build /tmp_build/public/mix-manifest.json public/mix-manifest.json
-RUN crystal build --static src/start_server.cr
-RUN crystal build --static tasks.cr -o run_task
-WORKDIR /tmp_build/config
-RUN echo "port: 8080\nhost: 0.0.0.0" > /tmp_build/config/watch.yml
+RUN crystal build --release --production --static --no-debug src/start_server.cr
+RUN crystal build --release --production --static --no-debug tasks.cr -o run_task
+WORKDIR /tmp_build/conf
+RUN echo "port: 8080\nhost: 0.0.0.0" > /tmp_build/conf/watch.yml
 
 # Runner
 
@@ -43,6 +43,6 @@ WORKDIR /app
 COPY --from=node_build /tmp_build/public /app/public
 COPY --from=lucky_build /tmp_build/start_server /app/start_server
 COPY --from=lucky_build /tmp_build/run_task /app/run_task
-COPY --from=lucky_build /tmp_build/config/. /app/config/
+COPY --from=lucky_build /tmp_build/conf/. /app/config/
 
 CMD ["/app/start_server"]
