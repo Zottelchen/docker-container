@@ -6,7 +6,7 @@ FROM node:16-buster-slim as compiler
 WORKDIR /usr/src/app
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends gnutls-bin git ca-certificates
-COPY . .
+COPY --from=git_clone /git_clone .
 RUN npm install
 RUN npm run build
 
