@@ -9,6 +9,7 @@ The core principles of these images are:
 1. Try to cover at least arm64 & amd64 - more are welcome though
 2. Be as small & secure as possible, use distroless where possible
 3. Be available on Docker Hub & GitHub Container Registry
+4. The contents of this repository are licensed under the MIT License - the contents of the images follow their respective licenses of the projects
 
 ## Images
 
