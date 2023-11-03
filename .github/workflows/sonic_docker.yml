@@ -45,11 +45,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: "{{defaultContext}}:sonic"
-          platforms: linux/arm64/v8
+          platforms: linux/amd64,linux/arm64/v8
           labels: |
             org.opencontainers.image.source=https://github.com/Zottelchen/docker-container
             org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.description=A free and open source alternative Twitter front-end focused on privacy and performance.
+            org.opencontainers.image.description=Fast, lightweight & schema-less search backend. An alternative to Elasticsearch that runs on a few MBs of RAM. 
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
