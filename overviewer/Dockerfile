@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y wget ca-certifi
 RUN adduser nonroot && addgroup nonroot nonroot
 USER nonroot
 WORKDIR /app
-RUN mkdir -p ~/.minecraft/versions/1.20/ && wget https://overviewer.org/textures/1.20 -O ~/.minecraft/versions/1.20/1.20.jar && \
-    mkdir -p ~/.minecraft/versions/1.17/ && wget https://overviewer.org/textures/1.17 -O ~/.minecraft/versions/1.17/1.17.jar
+RUN mkdir -p ~/.minecraft/versions/1.20/ && wget --progress=dot:giga https://overviewer.org/textures/1.20 -O ~/.minecraft/versions/1.20/1.20.jar && \
+    mkdir -p ~/.minecraft/versions/1.17/ && wget --progress=dot:giga https://overviewer.org/textures/1.17 -O ~/.minecraft/versions/1.17/1.17.jar
 COPY --from=git_clone --chown=nonroot:nonroot /git_clone/ .
 RUN python3 setup.py build
 
