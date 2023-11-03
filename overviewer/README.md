@@ -20,8 +20,8 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Stats
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/overviewer.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/overviewer.yml)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/overviewer_docker.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/overviewer_docker.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/zottelchen/overviewer?logo=docker)](https://hub.docker.com/r/zottelchen/overviewer)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/overviewer/latest?logo=docker)](https://hub.docker.com/r/zottelchen/overviewer)
-[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/overviewer?label=%E2%AD%90%20DOCKER%20STARS)](https://hub.docker.com/r/zottelchen/overviewer)
+[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/overviewer?label=%E2%AD%90%20docker%20stars)](https://hub.docker.com/r/zottelchen/overviewer)
 [![GHCR Image Size](https://ghcr-badge.egpl.dev/zottelchen/overviewer/size)](https://github.com/users/Zottelchen/packages/container/package/overviewer)

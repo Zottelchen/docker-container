@@ -21,8 +21,8 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Stats
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/breezewiki.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/breezewiki.yml)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/breezewiki_docker.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/breezewiki_docker.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/zottelchen/breezewiki?logo=docker)](https://hub.docker.com/r/zottelchen/breezewiki)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/breezewiki/latest?logo=docker)](https://hub.docker.com/r/zottelchen/breezewiki)
-[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/breezewiki?label=%E2%AD%90%20DOCKER%20STARS)](https://hub.docker.com/r/zottelchen/breezewiki)
+[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/breezewiki?label=%E2%AD%90%20docker%20stars)](https://hub.docker.com/r/zottelchen/breezewiki)
 [![GHCR Image Size](https://ghcr-badge.egpl.dev/zottelchen/breezewiki/size)](https://github.com/users/Zottelchen/packages/container/package/breezewiki)

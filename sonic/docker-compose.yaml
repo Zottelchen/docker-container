@@ -3,7 +3,7 @@ version: "3"
 services:
   sonic:
     restart: unless-stopped
-    image: zottelchen/sonic:latest
+    image: ghcr.io/zottelchen/sonic:latest
     # or
     # image: zottelchen/sonic:latest
     volumes:

@@ -21,8 +21,8 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Stats
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/nitter-privacydevel.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/nitter-privacydevel.yml)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/nitter-privacydevel_docker.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/nitter-privacydevel_docker.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/zottelchen/nitter-privacydevel?logo=docker)](https://hub.docker.com/r/zottelchen/nitter-privacydevel)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/nitter-privacydevel/latest?logo=docker)](https://hub.docker.com/r/zottelchen/nitter-privacydevel)
-[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/nitter-privacydevel?label=%E2%AD%90%20DOCKER%20STARS)](https://hub.docker.com/r/zottelchen/nitter-privacydevel)
+[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/nitter-privacydevel?label=%E2%AD%90%20docker%20stars)](https://hub.docker.com/r/zottelchen/nitter-privacydevel)
 [![GHCR Image Size](https://ghcr-badge.egpl.dev/zottelchen/nitter-privacydevel/size)](https://github.com/users/Zottelchen/packages/container/package/nitter-privacydevel)

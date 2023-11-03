@@ -21,8 +21,8 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Stats
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/nitter.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/nitter.yml)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/nitter_docker.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/nitter_docker.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/zottelchen/nitter?logo=docker)](https://hub.docker.com/r/zottelchen/nitter)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/nitter/latest?logo=docker)](https://hub.docker.com/r/zottelchen/nitter)
-[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/nitter?label=%E2%AD%90%20DOCKER%20STARS)](https://hub.docker.com/r/zottelchen/nitter)
+[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/nitter?label=%E2%AD%90%20docker%20stars)](https://hub.docker.com/r/zottelchen/nitter)
 [![GHCR Image Size](https://ghcr-badge.egpl.dev/zottelchen/nitter/size)](https://github.com/users/Zottelchen/packages/container/package/nitter)

@@ -1,4 +1,4 @@
-name: Nitter (Privacydevel) - Build & Push
+name: Nitter (Privacydevel) - Hadolint🧪
 
 on:
   push:

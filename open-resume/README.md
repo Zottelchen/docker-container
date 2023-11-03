@@ -22,6 +22,5 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/open-resume.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/open-resume.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/zottelchen/open-resume?logo=docker)](https://hub.docker.com/r/zottelchen/open-resume)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/open-resume/latest?logo=docker)](https://hub.docker.com/r/zottelchen/open-resume)
-[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/open-resume?label=%E2%AD%90%20DOCKER%20STARS)](https://hub.docker.com/r/zottelchen/open-resume)
+[![Docker Stars](https://img.shields.io/docker/stars/zottelchen/open-resume?label=%E2%AD%90%20docker%20stars)](https://hub.docker.com/r/zottelchen/open-resume)
 [![GHCR Image Size](https://ghcr-badge.egpl.dev/zottelchen/open-resume/size)](https://github.com/users/Zottelchen/packages/container/package/open-resume)
-
