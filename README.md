@@ -28,3 +28,4 @@ The core principles of these images are:
 ### Retired Images
 
 - Scribe (too much work to maintain a custom image)
+- Enhanced TTVDropBot (broken by Twitch)
