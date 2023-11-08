@@ -17,6 +17,7 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 ## Supported Platforms
 
 - linux/arm64
+- [linux/amd64 is available from the official repository](https://hub.docker.com/r/valeriansaliou/sonic)
 
 ## Stats
 
