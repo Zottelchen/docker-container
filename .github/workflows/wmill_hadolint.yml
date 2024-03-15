@@ -6,6 +6,9 @@ on:
       - "main"
     paths:
       - "wmill-cli/Dockerfile"
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "33 3 * * sat"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
