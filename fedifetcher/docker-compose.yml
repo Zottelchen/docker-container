@@ -1,0 +1,13 @@
+services:
+  fedifetcher:
+    container_name: fedifetcher
+    image: ghcr.io/zottelchen/fedifetcher:latest
+    # or
+    # image: zottelchen/fedifetcher:latest
+    restart: unless-stopped
+    volumes:
+      - "savestate:/app/artifacts"
+    command: --access-token=<ACCESS_TOKEN> --server=<INSTANCE_SERVER> --max-bookmarks=80 --max-followings=80 --max-followers=80 --from-notifications=1 --home-timeline-length=200
+
+volumes:
+  savestate:
