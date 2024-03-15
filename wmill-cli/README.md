@@ -33,7 +33,7 @@ alias wmill="docker run --rm -ti -v '${PWD}:${PWD}' -w '${PWD}' zottelchen/wmill
 
 ## Stats
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/wmill-cli_docker.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/wmill-cli_docker.yml)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/zottelchen/docker-container/wmill_docker.yml?logo=github)](https://github.com/Zottelchen/docker-container/actions/workflows/wmill_docker.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/zottelchen/wmill-cli?logo=docker)](https://hub.docker.com/r/zottelchen/wmill-cli)
 [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/wmill-cli/latest?logo=docker)](https://hub.docker.com/r/zottelchen/wmill-cli)
 [![Docker Stars](https://img.shields.io/docker/stars/zottelchen/wmill-cli?label=%E2%AD%90%20docker%20stars)](https://hub.docker.com/r/zottelchen/wmill-cli)
