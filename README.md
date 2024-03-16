@@ -18,10 +18,10 @@ The core principles of these images are:
 | ----------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [BreezeWiki](breezewiki/README.md)  | [Gitdab](https://gitdab.com/cadence/breezewiki)   | [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/breezewiki/latest?logo=docker&label=%E2%80%8B)](https://hub.docker.com/r/zottelchen/breezewiki)   | [zottelchen/breezewiki](https://hub.docker.com/r/zottelchen/breezewiki)   | [ghcr.io/zottelchen/breezewiki](https://github.com/users/Zottelchen/packages/container/package/breezewiki)   |
 | [OpenResume](open-resume/README.md) | [GitHub](https://github.com/xitanggg/open-resume) | [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/open-resume/latest?logo=docker&label=%E2%80%8B)](https://hub.docker.com/r/zottelchen/open-resume) | [zottelchen/open-resume](https://hub.docker.com/r/zottelchen/open-resume) | [ghcr.io/zottelchen/open-resume](https://github.com/users/Zottelchen/packages/container/package/open-resume) |
-| [Sonic](sonic/README.md)🅱           | [GitHub](https://github.com/valeriansaliou/sonic) | [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/sonic/latest?logo=docker&label=%E2%80%8B)](https://hub.docker.com/r/zottelchen/sonic)             | [zottelchen/sonic](https://hub.docker.com/r/zottelchen/sonic)             | [ghcr.io/zottelchen/sonic](https://github.com/users/Zottelchen/packages/container/package/sonic)             |
+| [Sonic](sonic/README.md)            | [GitHub](https://github.com/valeriansaliou/sonic) | [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zottelchen/sonic/latest?logo=docker&label=%E2%80%8B)](https://hub.docker.com/r/zottelchen/sonic)             | [zottelchen/sonic](https://hub.docker.com/r/zottelchen/sonic)             | [ghcr.io/zottelchen/sonic](https://github.com/users/Zottelchen/packages/container/package/sonic)             |
 
-- _🅰: This image is only available for amd64._
-- _🅱: This image is only available for arm64._
+<!-- - _🅰: This image is only available for amd64._
+- _🅱: This image is only available for arm64._ -->
 
 ## Tool Images
 
