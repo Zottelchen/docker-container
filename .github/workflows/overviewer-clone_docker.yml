@@ -10,7 +10,7 @@ on:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "0 */12 * * *"
+    - cron: "16 16 * * *"
   workflow_dispatch:
 
 concurrency:
