@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y wget ca-certifi
 RUN adduser nonroot && addgroup nonroot nonroot
 USER nonroot
 WORKDIR /app
-RUN mkdir -p ~/.minecraft/versions/1.20/ && wget --progress=dot:giga https://overviewer.org/textures/1.20 -O ~/.minecraft/versions/1.20/1.20.jar && \
-    mkdir -p ~/.minecraft/versions/1.17/ && wget --progress=dot:giga https://overviewer.org/textures/1.17 -O ~/.minecraft/versions/1.17/1.17.jar
+RUN mkdir -p ~/.minecraft/versions/1.20/ && wget --progress=dot:giga https://piston-data.mojang.com/v1/objects/05b6f1c6b46a29d6ea82b4e0d42190e42402030f/client.jar -O ~/.minecraft/versions/1.20/1.20.jar && \
+    mkdir -p ~/.minecraft/versions/1.17/ && wget --progress=dot:giga https://piston-data.mojang.com/v1/objects/8d9b65467c7913fcf6f5b2e729d44a1e00fde150/client.jar -O ~/.minecraft/versions/1.17/1.17.jar
 COPY --from=git_clone --chown=nonroot:nonroot /git_clone/ .
 RUN python3 setup.py build
 
