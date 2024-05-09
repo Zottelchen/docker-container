@@ -2,7 +2,7 @@ FROM bitnami/git:latest as git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/valeriansaliou/sonic.git .
 
-FROM rust:slim-bullseye AS build
+FROM rust:1.77.2-slim-bullseye AS build
 
 RUN apt-get update
 RUN apt-get install -y build-essential clang git
@@ -17,7 +17,7 @@ RUN rustc --version && \
 WORKDIR /app
 COPY --from=git_clone /git_clone/ .
 
-RUN RUSTFLAGS="$RUSTFLAGS -A dead_code" cargo clean && cargo build --release
+RUN cargo clean && cargo build --release
 RUN strip ./target/release/sonic
 
 FROM gcr.io/distroless/cc
