@@ -17,7 +17,7 @@ RUN rustc --version && \
 WORKDIR /app
 COPY --from=git_clone /git_clone/ .
 
-RUN cargo clean && cargo build --release
+RUN RUSTFLAGS="$RUSTFLAGS -A dead_code" cargo clean && cargo build --release
 RUN strip ./target/release/sonic
 
 FROM gcr.io/distroless/cc
