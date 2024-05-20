@@ -2,7 +2,7 @@
 
 An [open-resume](https://github.com/xitanggg/open-resume) image. See [their GitHub repo](https://github.com/xitanggg/open-resume) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/open-resume).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/open-resume) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/open-resume/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/open-resume) | [Docker Hub](https://hub.docker.com/r/zottelchen/open-resume)
 

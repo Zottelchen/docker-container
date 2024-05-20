@@ -2,7 +2,7 @@
 
 A [Sonic](https://github.com/valeriansaliou/sonic) image. See [their GitHub repo](https://github.com/valeriansaliou/sonic) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/sonic).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/sonic) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/sonic/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/sonic) | [Docker Hub](https://hub.docker.com/r/zottelchen/sonic)
 

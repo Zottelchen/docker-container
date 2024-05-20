@@ -2,7 +2,7 @@
 
 A [BreezeWiki](https://gitdab.com/cadence/breezewiki) image. See [BreezeWiki's documentation](https://docs.breezewiki.com/) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/breezewiki).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/breezewiki) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/breezewiki/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/breezewiki) | [Docker Hub](https://hub.docker.com/r/zottelchen/breezewiki)
 

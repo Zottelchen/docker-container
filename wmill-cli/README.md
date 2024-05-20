@@ -2,7 +2,7 @@
 
 A [wmill CLI](https://github.com/windmill-labs/windmill) image. See [wmill CLI's documentation](https://www.windmill.dev/docs/advanced/cli) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/wmill-cli).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/wmill-cli) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/wmill-cli/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/wmill-cli) | [Docker Hub](https://hub.docker.com/r/zottelchen/wmill-cli)
 

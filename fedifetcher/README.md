@@ -2,7 +2,7 @@
 
 A [FediFetcher](https://github.com/nanos/FediFetcher) image. See [FediFetchers's documentation](https://github.com/nanos/FediFetcher) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/fedifetcher).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/fedifetcher) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/fedifetcher/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/fedifetcher) | [Docker Hub](https://hub.docker.com/r/zottelchen/fedifetcher)
 

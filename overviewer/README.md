@@ -2,7 +2,7 @@
 
 A [Minecraft Overviewer](https://github.com/overviewer/Minecraft-Overviewer) image. See [their GitHub repo](https://github.com/overviewer/Minecraft-Overviewer) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/overviewer).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/overviewer) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/overviewer/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/overviewer) | [Docker Hub](https://hub.docker.com/r/zottelchen/overviewer)
 

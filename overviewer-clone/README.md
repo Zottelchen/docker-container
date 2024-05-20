@@ -2,7 +2,7 @@
 
 A [The Minecraft Overviewer](https://github.com/GregoryAM-SP/The-Minecraft-Overviewer) image. See [their GitHub repo](https://github.com/GregoryAM-SP/The-Minecraft-Overviewer) for more information.
 
-For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/overviewer-clone).
+For more information about the image, see the [GitHub page](https://github.com/Zottelchen/docker-container/tree/main/overviewer-clone) or look at the [Dockerfile](https://github.com/Zottelchen/docker-container/tree/main/overviewer-clone/Dockerfile).
 
 [GitHub Container Registry](https://github.com/users/Zottelchen/packages/container/package/overviewer-clone) | [Docker Hub](https://hub.docker.com/r/zottelchen/overviewer-clone)
 
