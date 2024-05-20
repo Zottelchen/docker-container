@@ -8,9 +8,13 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Usage:
 
-- Download (or copy the content of) the `docker-compose.yml`
+- Download (or copy the content of) the `docker-compose.yaml`
 - Move the file to the folder you want
 - `docker-compose up -d`
+
+## docker-compose.yaml
+
+[Here](https://github.com/Zottelchen/docker-container/tree/main/open-resume/docker-compose.yaml)
 
 ## Supported Platforms
 

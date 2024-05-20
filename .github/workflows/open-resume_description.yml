@@ -6,6 +6,7 @@ on:
       - "main"
     paths:
       - "open-resume/README.md"
+      - "open-resume/docker-compose.yaml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -18,6 +19,19 @@ jobs:
     steps:
       - name: 🎯 Checkout code
         uses: actions/checkout@v4
+
+      - name: ↪ Replace placeholders in README
+        run: |
+          awk -v yaml="$(cat ./open-resume/docker-compose.yaml)" '{
+            if ($0 == "[Here](https://github.com/Zottelchen/docker-container/tree/main/open-resume/docker-compose.yaml)") {
+                print "```yaml"
+                print yaml
+                print "```"
+            } else {
+                print $0
+            }
+          }' ./open-resume/README.md > ./open-resume/README.tmp.md
+          mv ./open-resume/README.tmp.md ./open-resume/README.md
 
       - name: 📖 Update repo description
         uses: peter-evans/dockerhub-description@v4

@@ -8,10 +8,14 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Usage:
 
-- Download (or copy the content of) the `docker-compose.yml`
-- Customize the docker-compose.yml file how you want (following https://github.com/nanos/FediFetcher)
+- Download (or copy the content of) the `docker-compose.yaml`
+- Customize the docker-compose.yaml file how you want (following https://github.com/nanos/FediFetcher)
 - Move files to the folder you want
 - `docker-compose up -d`
+
+## docker-compose.yaml
+
+[Here](https://github.com/Zottelchen/docker-container/tree/main/fedifetcher/docker-compose.yaml)
 
 ## Supported Platforms
 

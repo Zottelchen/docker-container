@@ -8,11 +8,15 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Usage:
 
-- Download (or copy the content of) the `docker-compose.yml`
+- Download (or copy the content of) the `docker-compose.yaml`
 - Download (or copy the content of) the config.ini from this repository
 - Customize the config.ini file how you want (following https://docs.breezewiki.com/Configuration.html)
 - Move both files to the folder you want
 - `docker-compose up -d`
+
+## docker-compose.yaml
+
+[Here](https://github.com/Zottelchen/docker-container/tree/main/breezewiki/docker-compose.yaml)
 
 ## Supported Platforms
 

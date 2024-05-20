@@ -8,10 +8,14 @@ For more information about the image, see the [GitHub page](https://github.com/Z
 
 ## Usage:
 
-- Download (or copy the content of) the `docker-compose.yml`
+- Download (or copy the content of) the `docker-compose.yaml`
 - Move files to the folder you want
-- Edit the `docker-compose.yml` to your liking
+- Edit the `docker-compose.yaml` to your liking
 - `docker-compose up -d`
+
+## docker-compose.yaml
+
+[Here](https://github.com/Zottelchen/docker-container/tree/main/overviewer-clone/docker-compose.yaml)
 
 ## Supported Platforms
 
