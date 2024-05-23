@@ -13,4 +13,6 @@ WORKDIR /app
 COPY --from=builder /home/nonroot/.local/lib/python3.12/site-packages /home/nonroot/.local/lib/python3.12/site-packages
 COPY --from=builder --chown=nonroot:nonroot /app/artifacts/. /app/artifacts/
 COPY --from=git_clone --chown=nonroot:nonroot /git_clone/find_posts.py /app/
+
+ENV PYTHONUNBUFFERED=1
 ENTRYPOINT [ "python", "/app/find_posts.py" ]

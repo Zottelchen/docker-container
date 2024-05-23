@@ -12,6 +12,5 @@ RUN mkdir -p ~/.minecraft/versions/1.20/ && wget --progress=dot:giga https://pis
 COPY --from=git_clone --chown=nonroot:nonroot /git_clone/ .
 RUN python3 setup.py build
 
-
-
+ENV PYTHONUNBUFFERED=1
 ENTRYPOINT [ "python3", "overviewer.py" ]
