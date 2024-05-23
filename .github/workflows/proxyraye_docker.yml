@@ -1,0 +1,75 @@
+name: ProxyRaye - Docker🐋
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "proxyraye/Dockerfile"
+      - ".github/workflows/proxyraye_docker.yml"
+
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Build-and-Push:
+    name: 🐋Build and push Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: 👷‍♀️ Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: 👷‍♂️ Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🐙 Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🐋Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: 👷‍♂️🐋👷‍♀️ Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: "{{defaultContext}}:proxyraye"
+          platforms: linux/amd64,linux/arm64/v8
+          labels: |
+            org.opencontainers.image.source=https://github.com/Zottelchen/docker-container
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.description=Minecraft Overviewer renders Minecraft maps into a set of images which can be combined into a Google Maps like interface on a web page.
+          push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          tags: |
+            zottelchen/proxyraye:latest
+            ghcr.io/zottelchen/proxyraye:latest
+          # quay.io/<>/proxyraye:latest
+
+      - name: ✔➡ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔍 Scan for vulnerabilities
+        id: scan
+        uses: crazy-max/ghaction-container-scan@v3
+        with:
+          image: zottelchen/proxyraye:latest
+          dockerfile: ./proxyraye/Dockerfile
+
+      - name: ⬆ Upload SARIF file
+        if: ${{ steps.scan.outputs.sarif != '' }}
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
