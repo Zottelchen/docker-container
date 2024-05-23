@@ -1,4 +1,4 @@
-FROM bitnami/git:latest as git_clone
+FROM cgr.dev/chainguard/git:latest as git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/overviewer/Minecraft-Overviewer.git .
 
