@@ -41,3 +41,4 @@ _These images are not to be exposed to the network and are therefore not as opti
 - Scribe (too much work to maintain a custom image)
 - Enhanced TTVDropBot (broken by Twitch)
 - Nitter & Nitter Privacydevel ([died](https://github.com/zedeus/nitter/issues/1155#issuecomment-1913361757). RIP. Use Mastodon instead. Screw X/Twitter/Musk.)
+ 
