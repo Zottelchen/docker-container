@@ -1,5 +1,5 @@
-FROM denoland/deno:latest
+FROM gcr.io/distroless/nodejs24-debian12:latest
 
-RUN deno install -q -A https://deno.land/x/wmill/main.ts
+RUN npm install -g windmill-cli
 
 ENTRYPOINT [ "wmill" ]
