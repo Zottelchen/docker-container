@@ -1,14 +1,14 @@
-FROM cgr.dev/chainguard/git:latest as git_clone
+FROM cgr.dev/chainguard/git:latest AS git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/xitanggg/open-resume.git .
 
-FROM cgr.dev/chainguard/node-lts:latest as builder
+FROM gcr.io/distroless/nodejs22-debian12t AS builder
 WORKDIR /app
 COPY --from=git_clone --chown=node:node /git_clone/ /app/
 RUN npm install --include=dev
 RUN npm run build
 
-FROM cgr.dev/chainguard/node-lts:latest AS runner
+FROM gcr.io/distroless/nodejs22-debian12 AS runner
 WORKDIR /app
 COPY --from=builder /app/.next/standalone .
 COPY --from=builder /app/public ./public
