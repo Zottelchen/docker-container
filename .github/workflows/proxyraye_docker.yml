@@ -59,7 +59,7 @@ jobs:
           # quay.io/<>/proxyraye:latest
 
       - name: ✔➡ Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🔍 Scan for vulnerabilities
         id: scan
