@@ -2,7 +2,7 @@ FROM cgr.dev/chainguard/git:latest as git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/overviewer/Minecraft-Overviewer.git .
 
-FROM ubuntu:jammy
+FROM ubuntu:24.04
 RUN apt-get update && apt-get install --no-install-recommends -y wget ca-certificates build-essential gcc python3 python3-dev python3-pil python3-numpy && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN adduser nonroot && addgroup nonroot nonroot
 USER nonroot

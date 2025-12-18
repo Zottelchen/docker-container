@@ -2,7 +2,7 @@ FROM cgr.dev/chainguard/git:latest as git_clone
 WORKDIR /git_clone
 RUN git clone --depth=1 https://github.com/valeriansaliou/sonic.git .
 
-FROM rust:1.77.2-slim-bullseye AS build
+FROM rust:1.92-slim-trixie AS build
 
 RUN apt-get update
 RUN apt-get install -y build-essential clang git
