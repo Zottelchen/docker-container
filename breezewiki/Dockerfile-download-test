@@ -1,0 +1,18 @@
+FROM debian:13-slim AS downloader
+
+WORKDIR /app
+
+RUN apt-get update -y
+RUN apt-get install -y --no-install-recommends ca-certificates curl tree
+
+RUN curl https://docs.breezewiki.com/files/breezewiki-dist.tar.gz -o breezewiki-dist.tar.gz && \
+    tar -xzf breezewiki-dist.tar.gz && \
+    rm breezewiki-dist.tar.gz && \
+    tree -al /app
+
+
+FROM gcr.io/distroless/static-debian13:latest as final
+WORKDIR /app
+COPY --from=downloader /app/breezewiki-dist /app/
+EXPOSE 10416
+CMD ["/app/bin/dist"]
