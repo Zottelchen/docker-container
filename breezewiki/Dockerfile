@@ -5,7 +5,20 @@ WORKDIR /app
 RUN apt-get update -y
 RUN apt-get install -y --no-install-recommends ca-certificates curl racket git sqlite3 libfontconfig1 libcairo2 libjpeg62-turbo libglib2.0-0 libpango-1.0-0 libpangocairo-1.0-0
 
-RUN git clone --depth=1 https://gitdab.com/cadence/breezewiki.git .
+RUN set -eux; \
+    n=0; \
+    until [ "$n" -ge 5 ]; do \
+      git clone --depth=1 https://gitdab.com/cadence/breezewiki.git . && break; \
+      n=$((n+1)); \
+      echo "git clone failed, attempt $n/5; retrying in 10s..."; \
+      sleep 10; \
+    done; \
+    if [ "$n" -ge 5 ]; then \
+      echo "git clone failed after 5 attempts"; \
+      exit 1; \
+    fi
+
+
 RUN raco pkg install --batch --auto --no-docs --skip-installed req-lib && \
     raco req -d
 RUN raco exe dist.rkt
