@@ -9,7 +9,7 @@ RUN apt-get update \
  && apt-get install --no-install-recommends -y \
       wget ca-certificates \
       build-essential gcc \
-      python3 python3-dev python3-pil python3-numpy \
+      python3 python3-dev python3-pil python3-numpy python3-setuptools \
  && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user and home dir explicitly
