@@ -59,7 +59,7 @@ jobs:
           # quay.io/<>/overviewer-clone:latest
 
       - name: ✔➡ Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🔍 Scan for vulnerabilities
         id: scan
