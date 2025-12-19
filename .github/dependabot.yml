@@ -6,6 +6,22 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/breezewiki/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/iperf3/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/overviewer/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/overviewer-clone/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/sonic/"
     schedule:
       interval: "daily"
