@@ -18,15 +18,15 @@ concurrency:
 
 jobs:
   build-and-push:
-    name: 🐋 Build and push (${{ matrix.platform }})
+    name: 🐋 Build and push (${{ matrix.arch }})
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        platform:
-          - linux/amd64
-          - linux/arm64/v8
+        arch:
+          - amd64
+          - arm64
 
     steps:
       - name: ✔➡ Checkout
@@ -55,8 +55,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:breezewiki"
-          platforms: ${{ matrix.platform }}
-          # push by digest so we can later assemble a manifest (buildx does this automatically per platform)
+          platforms: linux/${{ matrix.arch }}${{ matrix.arch == 'arm64' && '/v8' || '' }}
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -65,10 +64,9 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.description=BreezeWiki is a simple wiki front written in Racket.
           tags: |
-            zottelchen/breezewiki:${{ matrix.platform }}
-            ghcr.io/zottelchen/breezewiki:${{ matrix.platform }}
+            zottelchen/breezewiki:${{ matrix.arch }}
+            ghcr.io/zottelchen/breezewiki:${{ matrix.arch }}
 
-  # Optional: create a multi-arch manifest that points to the per-arch images above
   manifest:
     name: 🐋 Create multi-arch manifest
     runs-on: ubuntu-latest
@@ -92,20 +90,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: 🧩 Create and push multi-arch manifest
-        uses: docker/build-push-action@v6
-        with:
-          context: "{{defaultContext}}:breezewiki"
-          platforms: linux/amd64,linux/arm64/v8
-          push: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          labels: |
-            org.opencontainers.image.source=https://github.com/Zottelchen/docker-container
-            org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.description=BreezeWiki is a simple wiki front written in Racket.
-          tags: |
-            zottelchen/breezewiki:latest
-            ghcr.io/zottelchen/breezewiki:latest
+        run: |
+          docker buildx imagetools create \
+            --tag zottelchen/breezewiki:latest \
+            --tag ghcr.io/zottelchen/breezewiki:latest \
+            zottelchen/breezewiki:amd64 \
+            zottelchen/breezewiki:arm64
 
   scan:
     name: 🔍 Scan image
