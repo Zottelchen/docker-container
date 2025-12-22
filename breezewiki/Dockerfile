@@ -32,7 +32,7 @@ RUN mv ./lib/plt/dist/exts/ert/r0/app/config.ini ./config.ini && ln -s /app/conf
 FROM debian:13-slim AS libprovider
 WORKDIR /tmp
 RUN apt-get update -y && \
-    apt-get download zlib1g liblz4-1 libglib-2.0.so.0 libtinfo6 sqlite3 && \
+    apt-get download zlib1g liblz4-1 libglib2.0-0 libtinfo6 sqlite3 && \
     mkdir /dpkg && \
     for deb in *.deb; do dpkg --extract "$deb" /dpkg || exit 10; done
 
